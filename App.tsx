@@ -1,45 +1,41 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { View, Text, Alert } from 'react-native'
+import React, { useEffect } from 'react'
+import messaging from '@react-native-firebase/messaging'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AppNavigator from './screens/AppNavigator';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+
+  useEffect(() => {
+    getDeviceToken()
+  }, [])
+  const getDeviceToken = async () => {
+    let token = await messaging().getToken();
+    console.log(token)
+    storeStudentTokenId(token);
+  }
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      Alert.alert('New Notice', JSON.stringify(remoteMessage.notification.body).replaceAll('"', ''));
+    });
+    return unsubscribe;
+  }, []);
+  const storeStudentTokenId = async (value: string) => {
+    try {
+      console.log(value)
+      await AsyncStorage.setItem('studenttokenid', value)
+    } catch (e) {
+      // saving error
+    }
+  }
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }} edges={['bottom']}>
+      <AppNavigator />
+    </SafeAreaView>
+
   );
 }
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;

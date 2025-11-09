@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "708744947975",
+    "project_id": "gazole-mobile-app",
+    "storage_bucket": "gazole-mobile-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708744947975:android:2019f4b9258a8ec4abbda2",
+        "android_client_info": {
+          "package_name": "com.gazolecollege"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLRW3h845_x49coCjaS1rRxaazC9TZlfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
