@@ -83,9 +83,7 @@ const EmployeeMenu = () => {
                     <Image source={require('../assets/myprofile.png')} style={styles.image} />
                     <Text style={[styles.text]} >My Profile</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.inner} onPress={() => Alert.alert("Alert", "Coming Soon", [
-                    { text: "OK", onPress: () => console.log("OK Pressed") }
-                ])} >
+                <TouchableOpacity style={styles.inner} onPress={() => navigation.navigate('Student Attendance')} >
                     {/* onPress={() => navigation.navigate('Student Attendance')} */}
                     <Image source={require('../assets/scholarship.png')} style={styles.image} />
                     <Text style={styles.text} >Class Attendance</Text>
