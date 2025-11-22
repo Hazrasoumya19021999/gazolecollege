@@ -103,6 +103,7 @@ const StudentAttendance = () => {
             { label: 'Practical', value: 'PRAC' },
             { label: 'MDC', value: 'MDC' },
             { label: 'VAC', value: 'VAC' },
+            { label: 'AEC', value: 'AEC' },
         ],
         'PG': [],
         'BCA': [
@@ -245,7 +246,7 @@ const StudentAttendance = () => {
                 setSession(sessionItems);
                 if (sessionItems.length > 0) {
                     setSessionValue(sessionItems[0].value);
-                    bindSection(sessionItems[0].value, yearId, 'HONS');
+                    // bindSection(sessionItems[0].value, yearId, 'HONS');
                 }
             } else {
                 setSession([]);
@@ -328,29 +329,29 @@ const StudentAttendance = () => {
         }
     };
 
-    const bindSection = async (Sessionvalue, yearId, subjectTypeId) => {
-        try {
-            const sectiondata = await getData(`EmployeeNew/BindSectionNew?AdmissionSessionId=${Sessionvalue}&YearId=${yearId}&SubjectType=${subjectTypeId}`);
-            if (!sectiondata || sectiondata.length === 0) {
-                console.log("No section found for the given parameters.");
-                //setSection([{ label: "Select Section", value: 0 }]);
-                setSectionId(0);
-                return;
-            }
-            const sectionItems = [
-                //{ label: "Select Section", value: 0 },
-                ...sectiondata.map((item) => ({
-                    label: item.SectionName,
-                    value: item.SectionId,
-                }))
-            ];
+    // const bindSection = async (Sessionvalue, yearId, subjectTypeId) => {
+    //     try {
+    //         const sectiondata = await getData(`EmployeeNew/BindSectionNew?AdmissionSessionId=${Sessionvalue}&YearId=${yearId}&SubjectType=${subjectTypeId}`);
+    //         if (!sectiondata || sectiondata.length === 0) {
+    //             console.log("No section found for the given parameters.");
+    //             //setSection([{ label: "Select Section", value: 0 }]);
+    //             setSectionId(0);
+    //             return;
+    //         }
+    //         const sectionItems = [
+    //             //{ label: "Select Section", value: 0 },
+    //             ...sectiondata.map((item) => ({
+    //                 label: item.SectionName,
+    //                 value: item.SectionId,
+    //             }))
+    //         ];
 
-            setSection(sectionItems);
-            setSectionId(0);
-        } catch (error) {
-            console.log("Error fetching section data:", error);
-        }
-    };
+    //         setSection(sectionItems);
+    //         setSectionId(0);
+    //     } catch (error) {
+    //         console.log("Error fetching section data:", error);
+    //     }
+    // };
 
     const bindPeriod = async (ProgrammeId) => {
         switch (ProgrammeId) {
@@ -381,37 +382,37 @@ const StudentAttendance = () => {
         }
     };
 
-    const bindPaper = async (semesterId, Sessionvalue, ProgrammeId, yearId, subjectTypeId) => {
-        switch (ProgrammeId) {
-            case 'UG':
-                ProgrammeId = 1;
-                break;
-            case 'PG':
-                ProgrammeId = 2;
-                break;
-            case 'BCA':
-                ProgrammeId = 3;
-                break;
-        }
-        try {
-            const paperdata = await getData(`Employee/BindPaper?Semester=${semesterId}&Session=${Sessionvalue}&ProgrammeId=${ProgrammeId}&yearid=${yearId}&subjecttype=${subjectTypeId}`);
-            if (paperdata && paperdata !== "No Data Found" && paperdata.length > 0) {
-                const paperItems = paperdata.map((item) => ({
-                    label: item.Paper,
-                    value: item.PaperId,
-                }));
-                setPaper(paperItems);
-            } else {
-                setPaper([]);
-            }
-        } catch (error) {
-            console.log("Error fetching paper data:", error);
-        }
-    };
+    // const bindPaper = async (semesterId, Sessionvalue, ProgrammeId, yearId, subjectTypeId) => {
+    //     switch (ProgrammeId) {
+    //         case 'UG':
+    //             ProgrammeId = 1;
+    //             break;
+    //         case 'PG':
+    //             ProgrammeId = 2;
+    //             break;
+    //         case 'BCA':
+    //             ProgrammeId = 3;
+    //             break;
+    //     }
+    //     try {
+    //         const paperdata = await getData(`Employee/BindPaper?Semester=${semesterId}&Session=${Sessionvalue}&ProgrammeId=${ProgrammeId}&yearid=${yearId}&subjecttype=${subjectTypeId}`);
+    //         if (paperdata && paperdata !== "No Data Found" && paperdata.length > 0) {
+    //             const paperItems = paperdata.map((item) => ({
+    //                 label: item.Paper,
+    //                 value: item.PaperId,
+    //             }));
+    //             setPaper(paperItems);
+    //         } else {
+    //             setPaper([]);
+    //         }
+    //     } catch (error) {
+    //         console.log("Error fetching paper data:", error);
+    //     }
+    // };
 
     const onYearChange = (item) => {
         bindSubject(ProgrammeId, item.value, semesterId, subjectTypeId, StreamId, Sessionvalue);
-        bindSection(Sessionvalue, item.value, subjectTypeId);
+        // bindSection(Sessionvalue, item.value, subjectTypeId);
         setYearId(item.value);
         setSemesterId(0);
         setSemesterdata(allsemester[item.value] || []);
@@ -420,7 +421,7 @@ const StudentAttendance = () => {
     const onProgrammeChange = (item) => {
         bindSubject(item.value, yearId, semesterId, subjectTypeId, StreamId, Sessionvalue);
         bindPeriod(item.value);
-        bindPaper(semesterId, Sessionvalue, item.value, yearId, subjectTypeId);
+        // bindPaper(semesterId, Sessionvalue, item.value, yearId, subjectTypeId);
         setProgrammeId(item.value);
         setYearId(0);
         setYeardata(allyeardata[item.value] || []);
@@ -978,8 +979,8 @@ const StudentAttendance = () => {
                             onChange={(item) => {
                                 setSessionValue(item.value);
                                 bindSubject(ProgrammeId, yearId, semesterId, subjectTypeId, StreamId, item.value);
-                                bindSection(item.value, yearId, subjectTypeId);
-                                bindPaper(semesterId, item.value, ProgrammeId, yearId, subjectTypeId);
+                                // bindSection(item.value, yearId, subjectTypeId);
+                                // bindPaper(semesterId, item.value, ProgrammeId, yearId, subjectTypeId);
                             }}
                         />
                         <Dropdown
@@ -1024,7 +1025,7 @@ const StudentAttendance = () => {
                                 setSemesterId(item.value);
                                 bindSubject(ProgrammeId, yearId, item.value, subjectTypeId, StreamId, Sessionvalue);
                                 if (ProgrammeId == 'UG') {
-                                    bindPaper(item.value, Sessionvalue, ProgrammeId, yearId, subjectTypeId);
+                                    //  bindPaper(item.value, Sessionvalue, ProgrammeId, yearId, subjectTypeId);
                                 }
                             }}
                             disable={!isSemesterEnabled || !semesterdata.length}
@@ -1062,8 +1063,8 @@ const StudentAttendance = () => {
                             onChange={(item) => {
                                 setSubjectTypeId(item.value);
                                 bindSubject(ProgrammeId, yearId, semesterId, item.value, StreamId, Sessionvalue);
-                                bindSection(Sessionvalue, yearId, item.value);
-                                bindPaper(semesterId, Sessionvalue, ProgrammeId, yearId, item.value);
+                                //bindSection(Sessionvalue, yearId, item.value);
+                                //bindPaper(semesterId, Sessionvalue, ProgrammeId, yearId, item.value);
                             }}
                             disable={!isSubjectTypeEnabled || !subjecttypedata.length}
                         />
@@ -1082,7 +1083,7 @@ const StudentAttendance = () => {
                                 setSubjectId(item.value);
                             }}
                         />
-                        <Dropdown
+                        {/* <Dropdown
                             style={[styles.dropdown]}
                             containerStyle={styles.dropdownContainer}
                             data={Section}
@@ -1096,7 +1097,7 @@ const StudentAttendance = () => {
                             onChange={(item) => {
                                 setSectionId(item.value);
                             }}
-                        />
+                        /> */}
                         <Dropdown
                             style={[styles.dropdown]}
                             containerStyle={styles.dropdownContainer}
@@ -1113,7 +1114,7 @@ const StudentAttendance = () => {
                                 setPeriodId(item.value);
                             }}
                         />
-                        <Dropdown
+                        {/* <Dropdown
                             style={[styles.dropdown]}
                             containerStyle={styles.dropdownContainer}
                             data={Paper}
@@ -1129,7 +1130,7 @@ const StudentAttendance = () => {
                                 setPaperId(item.value);
                             }}
                             disable={!isPaperEnabled || ProgrammeId == 'PG'}
-                        />
+                        /> */}
                         <TouchableOpacity
                             onPress={SearchStudentData}
                             style={{
