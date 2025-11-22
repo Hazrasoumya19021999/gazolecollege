@@ -103,7 +103,7 @@ const Profile = () => {
                     console.log("Subjects Response:", subjectsResponse);
 
                     setSubjectsData(subjectsResponse);
-                    setAddress(subjectsResponse.Address || '');
+                    //setAddress(subjectsResponse.Address || '');
 
                     // Update image only if available from API, otherwise keep default
                     if (subjectsResponse.StudentPhoto) {
