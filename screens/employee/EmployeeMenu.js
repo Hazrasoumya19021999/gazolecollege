@@ -88,9 +88,7 @@ const EmployeeMenu = () => {
                     <Image source={require('../assets/scholarship.png')} style={styles.image} />
                     <Text style={styles.text} >Class Attendance</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.inner} onPress={() => Alert.alert("Alert", "Coming Soon", [
-                    { text: "OK", onPress: () => console.log("OK Pressed") }
-                ])} >
+                <TouchableOpacity style={styles.inner} onPress={() => navigation.navigate('My Class')} >
                     {/* onPress={() => navigation.navigate('My Class')} */}
                     <Image source={require('../assets/class.png')} style={styles.image} />
                     <Text style={styles.text} >My Class</Text>
@@ -105,9 +103,7 @@ const EmployeeMenu = () => {
                 </TouchableOpacity> */}
             </View>
             <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', padding: 5, marginHorizontal: 10 }}>
-                <TouchableOpacity style={styles.inner} onPress={() => Alert.alert("Alert", "Coming Soon", [
-                    { text: "OK", onPress: () => console.log("OK Pressed") }
-                ])} >
+                <TouchableOpacity style={styles.inner} onPress={() => navigation.navigate('Attendance summary Report')} >
                     {/* onPress={() => navigation.navigate('Attendance summary Report')} */}
                     <Image source={require('../assets/report.png')} style={styles.image} />
                     <Text style={styles.text} >Students Attendance Report</Text>
@@ -116,7 +112,7 @@ const EmployeeMenu = () => {
                     <Image source={require('../assets/noticeboard.png')} style={styles.image} />
                     <Text style={styles.text} >Employee Notice</Text>
                 </TouchableOpacity>
-                 <TouchableOpacity style={styles.inner} onPress={() => navigation.navigate('College Directory')}>
+                <TouchableOpacity style={styles.inner} onPress={() => navigation.navigate('College Directory')}>
                     <Image source={require('../assets/college.png')} style={styles.image} />
                     <Text style={styles.text} >College Directory</Text>
                 </TouchableOpacity>
@@ -175,13 +171,13 @@ const EmployeeMenu = () => {
                     <Image source={require('../assets/about.png')} style={styles.image} />
                     <Text style={styles.text} >About College</Text>
                 </TouchableOpacity>
-                  <TouchableOpacity style={styles.inner} onPress={() => openPlayStore()}>
+                <TouchableOpacity style={styles.inner} onPress={() => openPlayStore()}>
                     <Image source={require('../assets/feedback.png')} style={[styles.image]} />
                     <Text style={styles.text} >Rate App</Text>
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', padding: 5, marginHorizontal: 10 }}>
-              
+
                 <TouchableOpacity style={[styles.inner, { opacity: 0 }]}>
                 </TouchableOpacity>
                 <TouchableOpacity style={[styles.inner, { opacity: 0 }]}>
