@@ -485,7 +485,7 @@ const GiveAttendance = ({ navigation }) => {
 
                 console.log('Submission Data:', submissionData);
 
-                const submissionResponse = await postData('EmployeeNew/SaveStudentAttendance', submissionData);
+                const submissionResponse = await postData('EmployeeNew/SaveStudentAttendanceByCode', submissionData);
                 const message = submissionResponse?.replace(/^\d+\s*/, '') || 'Attendance submitted successfully';
                 setSuccess(message);
             } else {

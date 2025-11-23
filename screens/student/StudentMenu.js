@@ -50,9 +50,7 @@ const StudentMenu = () => {
                     <Image source={require('../assets/identity-card.png')} style={styles.image} />
                     <Text style={styles.text} >My Student ID</Text>
                 </TouchableOpacity> */}
-                <TouchableOpacity style={styles.inner} onPress={() => Alert.alert("Alert", "Coming Soon", [
-                    { text: "OK", onPress: () => console.log("OK Pressed") }
-                ])}>
+                <TouchableOpacity style={styles.inner} onPress={() => navigation.navigate('Attendance')}>
                     {/* onPress={() => navigation.navigate('Attendance')}   */}
                     <Image source={require('../assets/attendance.png')} style={styles.image} />
                     <Text style={styles.text} >My Attendance</Text>
@@ -60,9 +58,7 @@ const StudentMenu = () => {
             </View>
             <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', padding: 5, marginHorizontal: 10 }}>
 
-                <TouchableOpacity style={styles.inner} onPress={() => Alert.alert("Alert", "Coming Soon", [
-                    { text: "OK", onPress: () => console.log("OK Pressed") }
-                ])} >
+                <TouchableOpacity style={styles.inner} onPress={() => navigation.navigate('AttendanceSummaryReport')} >
                     {/* onPress={() => navigation.navigate('AttendanceSummaryReport')} */}
                     <Image source={require('../assets/areports.png')} style={styles.image} />
                     <Text style={styles.text} >Attendance Report</Text>
