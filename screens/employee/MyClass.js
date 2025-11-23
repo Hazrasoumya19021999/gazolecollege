@@ -71,7 +71,7 @@ const MyClass = () => {
                     <WebView
                         key={reloadKey}
                         source={{
-                            uri: `https://mcerp.in/erp/mobilewebview/FacultyWiseClassReportWebView.aspx?TeacherId=${teacherId}`
+                            uri: `https://gmg.ac.in/erp/mobilewebview/FacultyWiseClassReportWebView.aspx?TeacherId=${teacherId}`
                         }}
                         style={styles.webview}
                         onLoadStart={() => setLoading(true)}
