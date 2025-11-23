@@ -28,6 +28,7 @@ const Profile = () => {
     const [MotherName, setMotherName] = useState('')
     const [AadhaarNo, setAadhaarNo] = useState('')
     const [Gender, setGender] = useState('')
+    const [AECSubject, setAECSubject] = useState('')
 
     // Default image URL
     const DEFAULT_IMAGE_URL = 'https://gmg.ac.in/erp/Student/StudentPhoto/2024/S1.jpg';
@@ -104,6 +105,8 @@ const Profile = () => {
 
                     setSubjectsData(subjectsResponse);
                     //setAddress(subjectsResponse.Address || '');
+
+                    setAECSubject(subjectsResponse.AECOneSubjectId || 'N/A');
 
                     // Update image only if available from API, otherwise keep default
                     if (subjectsResponse.StudentPhoto) {
@@ -255,6 +258,10 @@ const Profile = () => {
                                         <View style={styles.descheader}>
                                             <Text style={styles.desc}>VAC Subject</Text>
                                             <Text style={styles.descinfo}>{getVACSubject()}</Text>
+                                        </View>
+                                        <View style={styles.descheader}>
+                                            <Text style={styles.desc}>AEC Subject</Text>
+                                            <Text style={styles.descinfo}>{AECSubject}</Text>
                                         </View>
                                         <View style={styles.descheader}>
                                             <Text style={styles.desc}>Minor Subject</Text>
