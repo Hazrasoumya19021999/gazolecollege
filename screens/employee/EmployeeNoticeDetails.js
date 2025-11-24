@@ -1,5 +1,7 @@
-import { View, Text, StyleSheet, SafeAreaView, StatusBar, ScrollView, BackHandler,
-     Alert, Image, TouchableOpacity, Linking } from 'react-native'
+import {
+    View, Text, StyleSheet, SafeAreaView, StatusBar, ScrollView, BackHandler,
+    Alert, Image, TouchableOpacity, Linking
+} from 'react-native'
 import React, { useEffect } from 'react'
 import { useWindowDimensions } from 'react-native';
 import RenderHtml from 'react-native-render-html';
@@ -52,7 +54,7 @@ const EmployeeNoticeDetails = ({ route, navigation }) => {
                     <Text style={styles.publishdate}>Publish Date : {JSON.parse(JSON.stringify(noticeDate.substr(0, 10)))}</Text>
                 </ScrollView>
                 {
-                    DocumentPath == null ? null : <>
+                    DocumentPath == null || DocumentPath == "" ? null : <>
                         <TouchableOpacity onPress={() => {
                             Linking.openURL(DocumentPath
                             )
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
         fontSize: 13,
         fontWeight: 'bold',
         marginBottom: 10,
-        marginTop:10,
+        marginTop: 10,
         color: 'black'
     },
     noticedate: {
