@@ -69,7 +69,7 @@ const EmployeeDashboard = () => {
   }, [isFocused]);
 
   const CheckAppVersion = async () => {
-    const apiUrl = await getData('EmployeeNew/CheckUpdateAppVersioncode?Versioncode=' + 14);
+    const apiUrl = await getData('EmployeeNew/CheckUpdateAppVersioncode?Versioncode=' + 16);
     try {
       const data = parseInt(apiUrl.message, 11);
       console.log('Versioncode', data)
