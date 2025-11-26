@@ -133,7 +133,7 @@ const Login = ({ navigation }) => {
             }
         }
         catch (error) {
-            showPopupMessage(" Failed", error.message);
+            showPopupMessage("Login Failed", "Username or Password is incorrect");
             setIsLoading(false);
             return false;
         }
@@ -254,7 +254,7 @@ const Login = ({ navigation }) => {
                             secureTextEntry={hidePass}
                             onChangeText={text => setpwd(text)} />
 
-                        <Text style={{ color: 'red', fontSize: 12, textAlign: 'left',paddingTop:10 }}>*** Your Login User Id and Password will be similar to ERP Portal . </Text>
+                        <Text style={{ color: 'red', fontSize: 12, textAlign: 'left', paddingTop: 10 }}>*** Your Login User Id and Password will be similar to ERP Portal . </Text>
 
                         <TouchableOpacity style={{ flex: 1, flexDirection: 'row', marginTop: 20 }} onPress={() => setHidePass(!hidePass)} >
                             {hidePass ?
