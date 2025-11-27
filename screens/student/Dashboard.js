@@ -134,7 +134,7 @@ const Dashboard = () => {
                 <TouchableOpacity
                   style={[styles.modalButton, styles.updateButton]}
                   onPress={() => Linking.openURL(Platform.OS === 'android' ?
-                    'https://play.google.com/store/apps/details?id=com.maldacollegeapp' :
+                    'https://play.google.com/store/apps/details?id=com.gazolecollege' :
                     'itms-apps://itunes.apple.com/app/idYOUR_APP_ID')}
                   activeOpacity={0.7}
                 >
