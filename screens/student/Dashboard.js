@@ -69,7 +69,7 @@ const Dashboard = () => {
   }, [isFocused]);
 
   const CheckAppVersion = async () => {
-    const apiUrl = await getData('EmployeeNew/CheckUpdateAppVersioncode?Versioncode=' + 16);
+    const apiUrl = await getData('EmployeeNew/CheckUpdateAppVersioncode?Versioncode=' + 17);
     try {
       const data = parseInt(apiUrl.message, 11);
       console.log('Versioncode', apiUrl)
