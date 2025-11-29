@@ -64,9 +64,7 @@ const StudentMenu = () => {
                     <Text style={styles.text} >Attendance Report</Text>
                 </TouchableOpacity>
                 {/* onPress={() => navigation.navigate('Fees')} */}
-                <TouchableOpacity style={styles.inner} onPress={() => Alert.alert("Alert", "Coming Soon", [
-                    { text: "OK", onPress: () => console.log("OK Pressed") }
-                ])} >
+                <TouchableOpacity style={styles.inner} onPress={() => navigation.navigate('Fees')} >
                     <Image source={require('../assets/Fees.png')} style={styles.image} />
                     <Text style={styles.text} >My Fees</Text>
                 </TouchableOpacity>
