@@ -97,7 +97,7 @@ const FeesDetails = ({ route, navigation }) => {
         if (StudentId != null) {
             var amount = JSON.stringify(payableamount).replaceAll('"', ' ');
             var feeid = JSON.stringify(feebillid).replaceAll('"', ' ');
-            var uri = "https://gmg.ac.in/erp/StudentPortal/BillPayment.aspx?FeeBillId=" + feeid + "&PayableAmount=" + amount + "&StudentId=" + parseInt(StudentId) + "&FromMobileApp=1";
+            var uri = "https://gmg.ac.in/erp/StudentPortal/BillPayment.aspx?FeeBillId=" + feeid + "&PayableAmount=" + 1 + "&StudentId=" + parseInt(StudentId) + "&FromMobileApp=1";
             console.log(uri)
             Linking.openURL(uri).catch(err => console.error("Couldn't load page", err));
         }
