@@ -122,7 +122,7 @@ const FeesDetails = ({ route, navigation }) => {
 
     const PrintBill = () => {
         var FeepaymentId = JSON.stringify(feepaymentid).replaceAll('"', ' ');
-        var uri = "https://mcerp.in/erp/StudentPortal/StudentBillPaymentReceipt.aspx?FeesPaymentId=" + FeepaymentId;
+        var uri = "https://gmg.ac.in/erp/StudentPortal/StudentBillPaymentReceipt.aspx?FeesPaymentId=" + FeepaymentId;
         console.log("PrintBill - ", uri)
         Linking.openURL(uri).catch(err => console.error("Couldn't load page", err));
     }

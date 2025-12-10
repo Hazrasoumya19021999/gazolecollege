@@ -53,12 +53,12 @@ const AdmissionFee = () => {
 
     const acknowledgementSlip = () => {
 
-        var uri = "https://mcerp.in/erp/StudentPortal/AdmissionAcknowledgementPrintApp.aspx?DATA=" + parseInt(applicationid) + "&SessionId=" + parseInt(sessionid) + "&ProgrammeId=" + parseInt(programmeid) + "&StudentId=" + studentid;
+        var uri = "https://gmg.ac.in/erp/StudentPortal/AdmissionAcknowledgementPrintApp.aspx?DATA=" + parseInt(applicationid) + "&SessionId=" + parseInt(sessionid) + "&ProgrammeId=" + parseInt(programmeid) + "&StudentId=" + studentid;
         console.log(uri)
         Linking.openURL(uri).catch(err => console.error("Couldn't load page", err));
     }
     const paymentSlip = () => {
-        var uri = "https://mcerp.in/erp/StudentPortal/AdmissionFeeMoneyReceiptForStudentApp.aspx?DATA=" + parseInt(applicationid);
+        var uri = "https://gmg.ac.in/erp/StudentPortal/AdmissionFeeMoneyReceiptForStudentApp.aspx?DATA=" + parseInt(applicationid);
         Linking.openURL(uri).catch(err => console.error("Couldn't load page", err));
     }
     return (
